@@ -1,0 +1,19 @@
+{% extends "learning_logs/base.html" %}
+{% comment %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'learning_logs\static\topics.css' %}"> {% endcomment %}
+
+{% block content %}
+<h1>Tematy</h1>
+{% for topic in topics %} 
+  <div class="topic_entry"> 
+    <h3>{{ topic.text}}</h2> 
+    <p>{{topic.desc}}</p>
+  </div> 
+{% empty %} 
+  <div>
+    <h3>Nie został jeszcze dodany żaden temat.</h3>
+  </div>
+{% endfor %} 
+
+{% endblock content %}
