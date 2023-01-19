@@ -1,24 +1,19 @@
 {% extends "learning_logs/base.html" %}
+{% comment %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'learning_logs\static\topics.css' %}"> {% endcomment %}
 
 {% block content %}
-<div class="topic_entries">
-  <h1 id="topics_topic">Tematy</h1>
-  <a href="{% url 'learning_logs:new_topic' %}">Dodaj nowy temat</a>
-  {% for topic in topics %} 
+<h1>Tematy</h1>
+{% for topic in topics %} 
   <div class="topic_entry"> 
-    <a href="{% url 'learning_logs:topic' topic.id %}">
-      <h3>{{ topic.text }}</h3> 
-      <p>{{ topic.desc }}</p>
-    </a>
-    {% comment %} {%if forloop.counter < count%}
-    <hr>
-    {%endif%} {% endcomment %}
+    <h3>{{ topic.text}}</h2> 
+    <p>{{topic.desc}}</p>
   </div> 
 {% empty %} 
   <div>
     <h3>Nie został jeszcze dodany żaden temat.</h3>
   </div>
 {% endfor %} 
-</div>
 
 {% endblock content %}

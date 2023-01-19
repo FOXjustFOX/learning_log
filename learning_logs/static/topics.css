@@ -1,0 +1,11 @@
+.topic_entry{
+    color: red;
+    margin: 1px;
+    margin: 10px 0;
+    padding: 10px;
+    /* border: 1px solid rgb(0, 0, 0); */
+}
+.topic_entry:hover{
+    margin: 0px;
+    border: 1px solid black;
+}
