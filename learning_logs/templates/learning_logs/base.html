@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Learning Logs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+</head>
+
+<html>
+<body>
+
+<div class="toolbar">
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a>
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+</div>
+
+{% block content %}{% endblock content %} 
+
+</body>
+
+</html>
