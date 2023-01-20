@@ -3,31 +3,39 @@
 {% block content %}  
 
 <div id='topic-and-decs'>
-    <h3>
+    <h1>
         <nobr>{{ topic }}</nobr>
-    </h3>
-    <p>{{ topic.desc }}</p>
+    </h1>
+    <h4>{{ topic.desc }}</h4>
 </div>
-<hr>
 <div id='entries'>
     <a id='add-new-entry' href="{% url 'learning_logs:new_entry' topic.id %}">Dodaj nowy wpis</a>
        
     {% for entry in entries %}
-        <div class='entry'>
-            <div class='entrytopic-date'>
+    <div class='entry'>
+        <header class='entry-header'>
+            <div class='entrytopic-left'>
                 <h4>{{ entry.text }}</h4>
-                <p class='date'>{{ entry.date_added|date:'d M Y H:i' }}</p>
+                <p>{{ entry.owner }}</p>
+                <p>{{ entry.date_added|date:'d M Y H:i' }}</p>
             </div>
+            <div class='entrytopic-right'>
+                <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edytuj</a>
+            </div>
+        </header>
+        <div class='entry-text'>
             <p class='desc'>{{ entry.desc|linebreaks }}</p>
             {% if forloop.counter < count%}
             <hr>
             {% endif %}
         </div>
-        {% empty %}
-            <div class='entry'>
-                <p>No entries have been added yet.</p>
-            </div>
+    </div>    
+    {% empty %}
+        <div class='entry'>
+            <p>No entries have been added yet.</p>
+        </div>
     {% endfor %}
+</div>
 
 
 {% endblock content %}

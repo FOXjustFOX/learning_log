@@ -1,4 +1,10 @@
 {% extends "learning_logs/base.html" %} 
 {% block content %} 
- <p>Learning Log pomaga w monitorowaniu postępów w nauce.</p>
+<div id="index-things">
+    {% if user.is_authenticated %} 
+        <h1>Witaj, {{ user.username }}.</h1>
+    {% else %}
+        <h1>Learning Log pomaga w monitorowaniu postępów w nauce.</h1>
+    {% endif %}
+</div>
 {% endblock content %} 

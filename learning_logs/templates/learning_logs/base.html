@@ -15,8 +15,19 @@
 <body>
 
 <div class="toolbar">
-    <a href="{% url 'learning_logs:index' %}">Learning Log</a>
-    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+    <div class="options">
+        <a href="{% url 'learning_logs:index' %}">Learning Log</a>
+        <a href="{% url 'learning_logs:topics' %}">Topics</a>
+    </div>
+    <div class="user-login">
+        {% if user.is_authenticated %} 
+            <p>Witaj, {{ user.username }}.</p>
+            <a href="{% url 'users:logout' %}">Wyloguj</a>
+        {% else %}
+            <a href="{% url 'users:register' %}">Rejestruj</a>
+            <a href="{% url 'users:login' %}">Zaloguj</a>  
+        {% endif %}
+    </div>
 </div>
 
 {% block content %}{% endblock content %} 
